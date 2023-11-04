@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             
             $table->Increments('id')->unsigned();
-            $table->string('slug')->unique();
-            
             $table->date('attendance_date')->default(date("Y-m-d"));
-
             $table->integer('employee_id')->unsigned();
             $table->integer('location_id')->unsigned();
             $table->integer('shift_id')->unsigned();

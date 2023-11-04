@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('schedule_id')->unsigned();
             
             $table->foreign('employee_id')->references('id')->on('employees');
-            $table->foreign('schedule_id')->references('id')->on('schedule');
+            $table->foreign('schedule_id')->references('id')->on('schedules');
 
             $table->timestamps();
             
