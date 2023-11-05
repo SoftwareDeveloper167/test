@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+
+    public function attendances() {
+        return $this->hasMany(Attendance::class , 'employee_id' , 'id');
+    }
+    
+    public function schedules() {
+        return $this->hasMany(Schedule::class , 'employee_id' , 'id');
+    }
 }
