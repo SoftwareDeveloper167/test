@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ScheduleResource;
 use Illuminate\Http\Request;
 
 use App\Services\ScheduleService;
@@ -14,6 +15,6 @@ class ScheduleController extends Controller
     }
 
     public function index() {
-        return $schedules = $this->scheduleService->getAllServices();
+        return ScheduleResource::collection($this->scheduleService->getAllServices());
     }
 }
