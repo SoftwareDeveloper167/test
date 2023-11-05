@@ -19,7 +19,7 @@ class AttendanceFactory extends Factory
         return [
             'check_in' => fake()->time() ,
             'check_out' => fake()->time() ,
-            'status' => rand(1,0),
+            'status' => 1 ,
             'employee_id' => \App\Models\Employee::get()->random() ,
             'schedule_id' => \App\Models\Schedule::get()->random() ,
         ];

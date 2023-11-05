@@ -15,14 +15,9 @@ class ShiftFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    {
-        $strings = array(
-            'Morning',
-            'Evening',
-        );
-        
+    {   
         return [
-            'title' => array_rand($strings) ,
+            'title' => 'Morning' ,
         ];
     }
 }

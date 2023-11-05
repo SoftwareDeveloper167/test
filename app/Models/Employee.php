@@ -16,4 +16,8 @@ class Employee extends Model
     public function schedules() {
         return $this->hasMany(Schedule::class , 'employee_id' , 'id');
     }
+
+    public function getAllSchedules() {
+        return Schedule::all();
+    }
 }

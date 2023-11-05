@@ -11,6 +11,7 @@ class EmployeeService
     }
     
     public function getEmployee($id) {
-        return Employee::with('attendances.schedules')->find($id);
+        // return Employee::with('schedules.attendances')->find($id);
+        return Employee::find($id);
     }
 }

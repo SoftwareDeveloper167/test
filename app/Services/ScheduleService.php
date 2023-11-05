@@ -1,12 +1,14 @@
-<?php 
+<?php
 
 namespace App\Services;
 
 use App\Models\Schedule;
 
-class ScheduleService 
+class ScheduleService
 {
-    public function getAllServices() {
-        return Schedule::with('locations' , 'shifts' , 'attendances.employees')->get();
+    public function getAllSchedules()
+    {
+        return Schedule::with('locations', 'shifts', 'attendances.employees')
+            ->get();
     }
 }

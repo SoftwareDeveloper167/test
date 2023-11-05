@@ -18,6 +18,7 @@ class EmployeeController extends Controller
     }
     
     public function show($id) {
-        return EmployeeResource::make($this->employeeService->getEmployee($id));
+        return $this->employeeService->getEmployee($id);
+        // return EmployeeResource::make($this->employeeService->getEmployee($id));
     }
 }

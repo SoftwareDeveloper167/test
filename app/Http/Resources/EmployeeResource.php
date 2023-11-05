@@ -19,7 +19,8 @@ class EmployeeResource extends JsonResource
             'name' => $this->name,
             'designation' => $this->designation,
             'email' => $this->email , // when relationship
-            'attendances' => AttendanceResource::collection( $this->whenLoaded('attendances') ), // when relationship
+            'attendances' =>  $this->whenLoaded('attendances') , // when relationship
+            // 'schedules' => ScheduleResource::collection( $this->whenLoaded('schedules') ) , // when relationship
         ];
     }
 }

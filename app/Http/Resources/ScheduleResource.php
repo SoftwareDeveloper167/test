@@ -20,7 +20,7 @@ class ScheduleResource extends JsonResource
             'description' => $this->description,
             'location' => $this->whenLoaded('locations') , // when relationship
             'shift' => $this->whenLoaded('shifts') , // when relationship
-            'attendances' => $this->whenLoaded('attendances') , // when relationship  
+            'attendances' => $this->whenLoaded('attendances') , // when relationship
         ];
     }
 }

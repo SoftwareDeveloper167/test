@@ -15,11 +15,9 @@ return new class extends Migration
             
             $table->Increments('id')->unsigned();
             $table->date('attendance_date')->default(date("Y-m-d"));
-            $table->integer('employee_id')->unsigned();
             $table->integer('location_id')->unsigned();
             $table->integer('shift_id')->unsigned();
 
-            $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('shift_id')->references('id')->on('shifts');
 

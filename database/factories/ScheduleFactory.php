@@ -18,7 +18,6 @@ class ScheduleFactory extends Factory
     {
         return [
             'attendance_date' => fake()->date("Y-m-d") ,
-            'employee_id' => \App\Models\Employee::get()->random() ,
             'location_id' => \App\Models\Location::get()->random() ,
             'shift_id' => \App\Models\Shift::get()->random() ,
         ];
