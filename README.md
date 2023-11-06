@@ -19,7 +19,7 @@ The Excel file must these fields
 Employees , Shift and location must stored in database
 
 | Email                  | Shift         | attendance_date  | location       | check_in | check_out |
-| -------------          | ------------- | ---------------- | ---------------  -------- | --------- |
+| ---------------------  | ------------- | ---------------- | -------------- | -------- | --------- |
 | cedrick74@example.org	 | Morning	     | 2020-01-20       | Bode-Rodriguez | 09:55:16	| 06:55:16  |
 
 
