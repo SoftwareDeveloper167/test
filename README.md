@@ -9,23 +9,23 @@
 
 ## Challenge 1
 
-you also can seed upload fake data to php artisan db:seed
+you also can seed upload fake data to - php artisan db:seed
 
 - http://127.0.0.1:8000/api/  to get all attendance data
 
 - http://127.0.0.1:8000/api/attendances  post excel file to upload attendance
 
-The Excel file must these fields
-Employees , Shift and location must stored in database
+The Excel file required all fields
 
 | Email                  | Shift         | attendance_date  | location       | check_in | check_out |
 | ---------------------  | ------------- | ---------------- | -------------- | -------- | --------- |
 | cedrick74@example.org	 | Morning	     | 2020-01-20       | Bode-Rodriguez | 09:55:16	| 06:55:16  |
 
+Note: Employees, Shift and location must stored in database
 
 ## Challange 2
 
-show one or more than one values of array
+show one or more than one duplicate values of array
 
 - http://127.0.0.1:8000/api/challenge2 
 
