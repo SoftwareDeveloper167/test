@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ScheduleResource;
 use App\Models\Employee;
+use App\Services\EmployeeService;
 use Illuminate\Http\Request;
 
 use App\Services\ScheduleService;
@@ -11,9 +12,11 @@ use App\Services\ScheduleService;
 class ScheduleController extends Controller
 {
     public $scheduleService;
-    public function __construct(ScheduleService $sService)
+    public $employeeService;
+    public function __construct(ScheduleService $sService, EmployeeService $eService)
     {
         $this->scheduleService = $sService;
+        $this->employeeService = $eService;
     }
 
     public function index()
@@ -26,17 +29,17 @@ class ScheduleController extends Controller
 
             $present_emp_id = $schedule->attendances->pluck('employee_id');
 
-            $absents = Employee::whereNotIn('id', $present_emp_id)->get();
+            $absents = $this->employeeService->getAbsentEmployees($present_emp_id);
 
             $schedule = $schedules->where('id', $schedule->id);
 
             foreach ($absents as $key_absent => $absent) {
 
                 $schedules[$key]->attendances->push([
-                    'check_in' => 'N/A' ,
-                    'check_out' => 'N/A' ,
-                    'status' => false ,
-                    'working_hours' => 0 ,
+                    'check_in' => 'N/A',
+                    'check_out' => 'N/A',
+                    'status' => false,
+                    'working_hours' => 0,
                     'employees' => $absent,
                 ]);
 

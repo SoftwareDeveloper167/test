@@ -10,6 +10,10 @@ class Attendance extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'check_in' , 'check_out' , 'employee_id' , 'schedule_id'
+    ];
+
     protected $appends = [
         'working_hours',
     ];

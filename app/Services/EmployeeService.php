@@ -11,7 +11,10 @@ class EmployeeService
     }
     
     public function getEmployee($id) {
-        // return Employee::with('schedules.attendances')->find($id);
         return Employee::find($id);
+    }
+
+    public function getAbsentEmployees($ids){
+        return Employee::whereNotIn('id', $ids)->get();
     }
 }

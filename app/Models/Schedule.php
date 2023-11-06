@@ -9,6 +9,10 @@ class Schedule extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'shift_id' , 'attendance_date' , 'location_id'
+    ] ;
+
     public function locations() {
         return $this->hasOne(Location::class , 'id' , 'location_id');
     }
