@@ -14,7 +14,8 @@ class EmployeeController extends Controller
     }
 
     public function index() {
-        return $this->employeeService->getAllEmployees();
+        $return = $this->employeeService->getAllEmployees();
+        return response()->json($return);
     }
     
     public function show($id) {

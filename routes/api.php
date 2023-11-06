@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/', [ScheduleController::class , 'index']);
 
 Route::apiResource('attendances', AttendanceController::class);
 
@@ -41,18 +40,18 @@ Route::get('challenge2', function () {
 
 Route::get('challenge4', function () {
 
-    $assoc = [
+    $array = [
         "insurance.txt" => "Company A", 
         "letter.docx" => "Company A", 
         "Contract.docx" => "Company B"
     ];
 
-    $temp = array();
+    $sorted = array();
     
-    foreach ($assoc as $key => $value) {
-        $temp[$value][] = $key;
+    foreach ($array as $key => $value) {
+        $sorted[$value][] = $key;
     }
 
-    return $temp;
+    return $sorted;
 
 });

@@ -47,7 +47,7 @@ class ScheduleController extends Controller
 
         }
 
-        return $schedules;
+        return response()->json($schedules);
 
     }
 }
