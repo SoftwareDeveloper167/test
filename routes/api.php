@@ -23,18 +23,35 @@ Route::apiResource('attendances', AttendanceController::class);
 
 Route::get('challenge2', function () {
 
-    $collection = collect([2, 3, 1, 2, 3 , 2 , 3 , 2 , 3]);
- 
+    $collection = collect([2, 3, 1, 2, 3, 2, 3, 2, 3]);
+
     $duplicate_entries = collect();
-    
+
     foreach ($collection as $key => $value) {
-         
-        if( !$duplicate_entries->contains($value) ){
+
+        if (!$duplicate_entries->contains($value)) {
             $duplicate_entries[] = $value;
-         }
+        }
 
     }
 
     return $duplicate_entries;
+
+});
+
+Route::get('challenge4', function () {
+
+    $assoc = [
+        "insurance.txt" => "Company A", 
+        "letter.docx" => "Company A", 
+        "Contract.docx" => "Company B"
+    ];
+
+    $temp = array();
+    foreach ($assoc as $key => $value) {
+        $temp[$value][] = $key;
+    }
+
+    return $temp;
 
 });
