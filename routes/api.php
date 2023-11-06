@@ -48,6 +48,7 @@ Route::get('challenge4', function () {
     ];
 
     $temp = array();
+    
     foreach ($assoc as $key => $value) {
         $temp[$value][] = $key;
     }
