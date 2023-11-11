@@ -21,4 +21,11 @@ class EmployeeController extends Controller
     public function show($id) {
         return $this->employeeService->getEmployee($id);
     }
+    
+    public function tutorial_guide() {
+        $return = $this->employeeService->tutorials();
+        return response()->json($return);
+    }
+
+    
 }
