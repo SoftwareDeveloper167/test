@@ -21,7 +21,7 @@ class AttendanceImport implements OnEachRow, WithHeadingRow
         $shift = Shift::select('id')->where('title', $row['shift'])->first();
         $employee = Employee::select('id')->where('email', $row['email'])->first();
 
-        if ($location->count() > 0 && $shift->count() > 0 && $employee->count() > 0) {
+        if ($location && $shift && $employee) {
 
             $schedule = Schedule::firstOrCreate([
                 'shift_id' => $shift->id,
@@ -29,11 +29,23 @@ class AttendanceImport implements OnEachRow, WithHeadingRow
                 'attendance_date' => Date::excelToDateTimeObject($row['attendance_date']),
             ]);
 
-            $schedule->attendances()->create([
-                'check_in' => Date::excelToDateTimeObject($row['check_in']),
-                'check_out' => Date::excelToDateTimeObject($row['check_out']),
-                'employee_id' => $employee->id
-            ]);
+            // $schedule->attendances()->create([
+            //     'check_in' => Date::excelToDateTimeObject($row['check_in']),
+            //     'check_out' => Date::excelToDateTimeObject($row['check_out']),
+            //     'employee_id' => $employee->id
+            // ]);
+
+            $schedule->attendances()->updateOrCreate(
+                [
+                    'employee_id' => $employee->id
+                ]
+                ,
+                [
+                    'check_in' => Date::excelToDateTimeObject($row['check_in']),
+                    'check_out' => Date::excelToDateTimeObject($row['check_out']),
+                    'employee_id' => $employee->id
+                ]
+            );
 
         }
 
